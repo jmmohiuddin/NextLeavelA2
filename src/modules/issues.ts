@@ -105,8 +105,8 @@ issuesRouter.get("/", async (req, res, next) => {
       status?: string;
     };
 
-    // sort defaults to "newest"
-    const sortValue = sort ?? "newest";
+    // sort defaults to "newest" — treat missing or empty string as "newest"
+    const sortValue = sort && sort.trim() !== "" ? sort : "newest";
     if (sortValue !== "newest" && sortValue !== "oldest") {
       return res.status(StatusCodes.BAD_REQUEST).json({
         success: false,
