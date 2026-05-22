@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.isValidIssueStatus = exports.isValidIssueType = exports.isValidRole = exports.isValidEmail = void 0;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const isValidEmail = (email) => emailRegex.test(email);
+exports.isValidEmail = isValidEmail;
+const isValidRole = (role) => role === "contributor" || role === "maintainer";
+exports.isValidRole = isValidRole;
+const isValidIssueType = (type) => type === "bug" || type === "feature_request";
+exports.isValidIssueType = isValidIssueType;
+const isValidIssueStatus = (status) => status === "open" || status === "in_progress" || status === "resolved";
+exports.isValidIssueStatus = isValidIssueStatus;
